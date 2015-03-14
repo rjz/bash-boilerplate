@@ -20,7 +20,7 @@ log () {
 }
 
 fatal () {
-  log "FATAL: '$1'"
+  log "FATAL: '$1'" 1>&2;
   exit 1
 }
 
