@@ -6,7 +6,7 @@ BASENAME=$(basename $0)
 
 # Utility functions
 log () {
-  echo "[`date -Is`] - $1"
+  echo "[`date -u +"%Y-%m-%dT%H:%M:%SZ"`] - $1"
 }
 
 fatal () {
