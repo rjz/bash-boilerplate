@@ -12,7 +12,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # Utility functions
 usage () {
   echo "$0 greet|dismiss name"
-  exit 0
+  exit 2
 }
 
 log () {
