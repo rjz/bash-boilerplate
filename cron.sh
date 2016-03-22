@@ -1,6 +1,8 @@
 #!/bin/bash
 
-set -e
+# Enable 'strict mode'
+set -euo pipefail
+IFS=$'\n\t'
 
 BASENAME=$(basename $0)
 
