@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Enable 'strict mode'
+set -euo pipefail
+IFS=$'\n\t'
+
 # Configurable variables
 SALUTATION="Top o' the morning to ye"
 VALEDICTION="Fare thee well"
