@@ -13,6 +13,8 @@ EXPECTEDARGC=2
 # Environmental variables
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+source ${DIR}/colors.sh
+
 # Utility functions
 usage () {
   echo "$0 greet|dismiss name"
@@ -20,7 +22,7 @@ usage () {
 }
 
 log () {
-  echo "[`date -u +"%Y-%m-%dT%H:%M:%SZ"`] - $1"
+  echo "${cyan}[`date -u +"%Y-%m-%dT%H:%M:%SZ"`]${normal} - $1"
 }
 
 fatal () {
@@ -41,11 +43,11 @@ fi
 case "$1" in
 
   greet)
-    say "$SALUTATION, $2!"
+    say "$SALUTATION, ${bold}$2${normal}!"
   ;;
 
   dismiss)
-    say "$VALEDICTION, $2!"
+    say "$VALEDICTION, ${bold}$2${normal}!"
   ;;
 
   fail)
