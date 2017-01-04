@@ -13,7 +13,7 @@ EXPECTEDARGC=2
 # Environmental variables
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-source ${DIR}/colors.sh
+[[ -f "${DIR}/colors.sh" ]] && source ${DIR}/colors.sh
 
 # Utility functions
 usage () {
@@ -30,6 +30,12 @@ fatal () {
   exit 1
 }
 
+require_dep () {
+  local dep=$1
+  local message=${2:-"$dep not available; bailing out."}
+  which $dep > /dev/null || fatal "$message"
+}
+
 # User-defined functions
 say () {
   log "So then I says, '$1'"
@@ -40,7 +46,10 @@ if [ $# -lt $EXPECTEDARGC ]; then
   usage
 fi
 
-case "$1" in
+cmd=$1
+shift
+
+case "$cmd" in
 
   greet)
     say "$SALUTATION, ${bold}$2${normal}!"
@@ -52,6 +61,10 @@ case "$1" in
 
   fail)
     fatal "I don't feel so well...."
+  ;;
+
+  require_dep)
+    require_dep $1
   ;;
 
   *)
