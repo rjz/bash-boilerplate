@@ -13,6 +13,8 @@ EXPECTEDARGC=2
 # Environmental variables
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+trap 'fatal "Command failed at line ${LINENO}"' ERR
+
 [[ -f "${DIR}/colors.sh" ]] && source ${DIR}/colors.sh
 
 # Utility functions
@@ -70,4 +72,3 @@ case "$cmd" in
   *)
     usage
 esac
-
