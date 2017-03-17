@@ -4,11 +4,11 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-BASENAME=$(basename $0)
+BASENAME=$(basename "$0")
 
 # Utility functions
 log () {
-  echo "[`date -u +"%Y-%m-%dT%H:%M:%SZ"`] - $1"
+  echo "[$(date -u +"%Y-%m-%dT%H:%M:%SZ")] - $1"
 }
 
 fatal () {
@@ -24,12 +24,12 @@ job () {
 
   start_time=$(current_timestamp)
 
-  log "Starting $BASENAME at `date -u`"
+  log "Starting $BASENAME"
 
   # Some long-running task
   sleep 3
 
-  log "Finished in $(($(current_timestamp) - $start_time))s."
+  log "Finished in $(($(current_timestamp) - start_time))s."
 }
 
 (
