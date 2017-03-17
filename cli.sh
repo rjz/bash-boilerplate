@@ -15,8 +15,6 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 trap 'fatal "Command failed at line ${LINENO}"' ERR
 
-[[ -f "${DIR}/colors.sh" ]] && source ${DIR}/colors.sh
-
 # Utility functions
 usage () {
   echo "$0 greet|dismiss name"
@@ -24,7 +22,7 @@ usage () {
 }
 
 log () {
-  echo "${cyan}[`date -u +"%Y-%m-%dT%H:%M:%SZ"`]${normal} - $1"
+  echo "[$(date -u +"%Y-%m-%dT%H:%M:%SZ")] - $1"
 }
 
 fatal () {
@@ -54,11 +52,11 @@ shift
 case "$cmd" in
 
   greet)
-    say "$SALUTATION, ${bold}$2${normal}!"
+    say "$SALUTATION, $2!"
   ;;
 
   dismiss)
-    say "$VALEDICTION, ${bold}$2${normal}!"
+    say "$VALEDICTION, $2!"
   ;;
 
   fail)
