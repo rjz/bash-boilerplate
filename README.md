@@ -1,6 +1,6 @@
 # Bash Boilerplate
 
-Because as long as we're still writing bash scripts we might as well start from
+Because as long as we're scripting [bash][bash], we might as well start from
 somewhere.
 
 ### cli.sh
@@ -23,7 +23,15 @@ $ ./cli.sh fail hard
 
 Boilerplate for scheduled cron tasks--logging, elapsed time, and process locking
 
+### Utilities
+
+Plus:
+
+  - Eight beautiful colors in `colors.sh` for prettying up your scripts
+  - And! A handful of useful utility functions in `utilities.sh`
+
 ## License
 
 WTFPL
 
+[bash]: https://www.gnu.org/software/bash/
