@@ -3,6 +3,8 @@
 Because as long as we're scripting [bash][bash], we might as well start from
 somewhere.
 
+[![Build Status](https://travis-ci.org/rjz/bash-boilerplate.svg?branch=master)](https://travis-ci.org/rjz/bash-boilerplate)
+
 ### cli.sh
 
 Boilerplate for command-line scripts--structure, environment, and facilities for

@@ -1,0 +1,9 @@
+sudo: false
+language: bash
+addons:
+  apt:
+    sources:
+    - sourceline: 'ppa:duggan/bats'
+    packages:
+    - bats
+script: bats test/*

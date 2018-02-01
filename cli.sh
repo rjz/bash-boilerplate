@@ -52,11 +52,11 @@ shift
 case "$cmd" in
 
   greet)
-    say "$SALUTATION, $2!"
+    say "$SALUTATION, $1!"
   ;;
 
   dismiss)
-    say "$VALEDICTION, $2!"
+    say "$VALEDICTION, $1!"
   ;;
 
   fail)
