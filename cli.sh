@@ -33,7 +33,7 @@ fatal () {
 require_dep () {
   local dep=$1
   local message=${2:-"$dep not available; bailing out."}
-  which $dep > /dev/null || fatal "$message"
+  command -v $dep > /dev/null || fatal "$message"
 }
 
 # User-defined functions
