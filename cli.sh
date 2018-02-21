@@ -5,13 +5,13 @@ set -euo pipefail
 IFS=$'\n\t'
 
 # Configurable variables
-SALUTATION="Top o' the morning to ye"
-VALEDICTION="Fare thee well"
+salutation="Top o' the morning to ye"
+valediction="Fare thee well"
 
-EXPECTEDARGC=2
+expectedargc=2
 
 # Environmental variables
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+MY_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 trap 'fatal "Command failed at line ${LINENO}"' ERR
 
@@ -42,7 +42,7 @@ say () {
 }
 
 # Command line parsing
-if [ $# -lt $EXPECTEDARGC ]; then
+if [ $# -lt $expectedargc ]; then
   usage
 fi
 
@@ -52,11 +52,11 @@ shift
 case "$cmd" in
 
   greet)
-    say "$SALUTATION, $1!"
+    say "$salutation, $1!"
   ;;
 
   dismiss)
-    say "$VALEDICTION, $1!"
+    say "$valediction, $1!"
   ;;
 
   fail)

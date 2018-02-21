@@ -4,8 +4,8 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-BASENAME=$(basename "$0")
-LOCK_TIMEOUT=30 # seconds
+my_name=$(basename "$0")
+lock_timeout=30 # seconds
 
 # Utility functions
 log () {
@@ -25,7 +25,7 @@ job () {
 
   start_time=$(current_timestamp)
 
-  log "Starting $BASENAME"
+  log "Starting ${my_name}"
 
   # Some long-running task
   sleep 3
@@ -34,7 +34,7 @@ job () {
 }
 
 (
-  flock --exclusive --timeout $LOCK_TIMEOUT 9 || fatal 'Failed acquiring lock'
+  flock --exclusive --timeout $lock_timeout 9 || fatal 'Failed acquiring lock'
   job
-) 9> "/var/lock/$BASENAME.lock"
+) 9> "/var/lock/${my_name}.lock"
 
